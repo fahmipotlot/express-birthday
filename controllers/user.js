@@ -101,4 +101,14 @@ module.exports = {
             res.status(400).json({'message': e})
         }
     },
+    deleteUser: async (req,res) => {
+        try {
+            const id = req.params.id
+            const user = await knex('users').where('id', id).del()
+            res.status(200).json(user)
+        } catch (e) {
+            console.log(e)
+            res.status(404).json({'message': e})
+        }
+    },
 }

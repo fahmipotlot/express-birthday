@@ -42,8 +42,8 @@ exports.initScheduledJobs = () => {
 		if (users.length > 0) {
 			users.forEach(async (user) => {
 				// only send email in 9 am user timezone      
-				const hour = moment.tz(user.location).format('hh');
-				if (hour === '03') {
+				const hour = moment.tz(user.location).format('HH:mm');
+				if (hour === process.env['time_send']) {
 					await sendEmail({user})
 				}
 			});

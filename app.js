@@ -15,5 +15,5 @@ const appRoute = require('./routes/routes');
 app.use('/api/v1', appRoute)
 
 app.listen(port, ()=>{
-    console.log(`Example app listening on port ${port}!`)
+    console.log(`Express Birthday listening on port ${port}!`)
 })
